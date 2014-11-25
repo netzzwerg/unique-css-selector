@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>test document</title>
+	<style type="text/css">
+		div {
+			margin: 20px 0;
+			height: 20px;
+			border: 3px solid #DDD;
+		}
+		#result {
+			border: none;
+			position: absolute;
+			bottom: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="parent3 active">
+		<div class=" parent2">
+			<div class="super">
+				<div id="realTarget" class="target"></div>
+			</div>
+			<div class="target"></div>
+		</div>
+	</div>
+	<div id="result"></div>
+	<script src="MooTools-Core-1.5.1.js" ></script>
+	<script src="selector.js" ></script>
+</body>
+</html>
