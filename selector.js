@@ -16,6 +16,10 @@
                 foundUnique = true;
             } else {
                 node = domNode.localName;
+                var position = getSiblingPosition(domNode);
+                if(position !== 1) {
+                    node = node + ':nth-of-type(' + position + ')';
+                }
                 path.push(node);
                 path.push('>');
             }
@@ -25,6 +29,23 @@
         } else {
             path.push(domNode.localName);
         }
+    };
+
+    var getSiblingPosition = function(domNode) {
+        var position = 1;
+
+        var countNodes = function(elm) {
+            if(elm.previousSibling !== null) {
+                if(elm.previousSibling.localName === domNode.localName) {
+                    position = position + 1;
+                }
+                countNodes(elm.previousSibling);
+            }
+        };
+
+        countNodes(domNode);
+
+        return position;
     };
 
     var isClassUnique = function(className) {
