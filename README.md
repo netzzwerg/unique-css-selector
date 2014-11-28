@@ -12,3 +12,4 @@ Test Cases:
 - multiple target class
 - change root scope
 - add black list
+- multiple child elements with same type
